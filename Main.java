@@ -5,20 +5,43 @@ void main() {
     System.out.println("---------------------");
     listaSimples.adicionarElemento("Batata");
     listaSimples.adicionarElemento("Feijão");
-    listaSimples.adicionarElemento("Batata");
+    listaSimples.adicionarElemento("Batata2");
     listaSimples.adicionarElemento("Arroz");
-    listaSimples.adicionarElemento("Batata");
-    System.out.println("---------------------");
-    listaSimples.removerTodas("Batata");
-    System.out.println("---------------------");
+
+    System.out.println("\n-----MÉTODO REMOVER TODAS-----");
+    //listaSimples.removerTodas("Batata");
+
+    System.out.println("\n-----MÉTODO EXIBIR ELEMENTOS-----");
+    //listaSimples.exibirElementos();
+
+    System.out.println("\n-----MÉTODO CONTAR-----");
+    //listaSimples.contar();
+
+    System.out.println("\n-----MÉTODO ADICIONAR VÁRIOS-----");
+    //System.out.println("Falta o método adiocionar vários");
+
+    System.out.println("\n-----MÉTODO OBTER-----");
+    //listaSimples.obter(0);
     listaSimples.exibirElementos();
-    System.out.println("---------------------");
-    listaSimples.contar();
-    System.out.println("---------------------");
-    System.out.println("Falta o método adiocionar vários");
-    System.out.println("---------------------");
-    listaSimples.obter(0);
-    System.out.println("---------------------");
-    System.out.println();
-    System.out.println("---------------------");
+
+    System.out.println("\n-----MÉTODO INSERIR-----");
+    listaSimples.inserir(0, "Suco");
+    listaSimples.exibirElementos();
+
+    System.out.println("\n-----MÉTODO REMOVER POR ÍNDICE-----");
+    //listaSimples.removerPorIndice(3);
+
+    System.out.println("\n-----MÉTODO LIMPAR-----");
+    //listaSimples.limpar();
+
+    System.out.println("\n-----MÉTODO ÚLTIMO ÍNDICE DA OCORRÊNCIA-----");
+    //listaSimples.ultimoIndiceDe("Arroz");
+
+    System.out.println("\n-----MÉTODO CONTAR OCORRÊNCIAS-----");
+    //.contarOcorrencias("Arroz");
+
+    System.out.println("\n-----MÉTODO SUBSTITUIR-----");
+    //listaSimples.substituir("Batata", "Água");
+
+
 }
