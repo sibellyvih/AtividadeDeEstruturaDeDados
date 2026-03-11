@@ -5,7 +5,7 @@ void main() {
     System.out.println("---------------------");
     listaSimples.adicionarElemento("Batata");
     listaSimples.adicionarElemento("Feijão");
-    listaSimples.adicionarElemento("Batata2");
+    //listaSimples.adicionarElemento("Batata2");
     listaSimples.adicionarElemento("Arroz");
 
     System.out.println("\n-----MÉTODO REMOVER TODAS-----");
@@ -16,17 +16,18 @@ void main() {
 
     System.out.println("\n-----MÉTODO CONTAR-----");
     //listaSimples.contar();
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO ADICIONAR VÁRIOS-----");
-    //System.out.println("Falta o método adiocionar vários");
+    listaSimples.adicionarVarios(new String[]{"Salsicha", "Salsa"});
 
     System.out.println("\n-----MÉTODO OBTER-----");
     //listaSimples.obter(0);
     listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO INSERIR-----");
-    listaSimples.inserir(0, "Suco");
-    listaSimples.exibirElementos();
+    //listaSimples.inserir(4, "Suco");
+    //listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO REMOVER POR ÍNDICE-----");
     //listaSimples.removerPorIndice(3);

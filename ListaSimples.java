@@ -97,9 +97,25 @@ public class ListaSimples implements ListaOperacoes {
         return contadorDeElementos;
     }
 
+
     @Override
     public int adicionarVarios(String[] elementos) {
-        return 0;
+        int quatidadeElementosAdicionados = 0;
+        if (!estaCheia()) {
+            for (int j = 0; j < elementos.length; j++) {
+
+                for (int i = 0; i < lista.length; i++) {
+
+                    if (lista[i] == null) {
+                        lista[i] = elementos[j];
+                        quatidadeElementosAdicionados++;
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println("Total de elementos que foram adicionados: " + quatidadeElementosAdicionados);
+        return quatidadeElementosAdicionados;
     }
 
     @Override
@@ -113,34 +129,22 @@ public class ListaSimples implements ListaOperacoes {
         }
     }
 
-    /**
-     * Insere um elemento em uma posição específica da lista.
-     *
-     * No caso de lista baseada em vetor, os elementos à direita devem
-     * ser deslocados. Na lista dinâmica, deve-se ajustar corretamente
-     * os encadeamentos entre os nós.
-     *
-     * @param indice Posição onde o elemento será inserido.
-     * @param elemento Elemento a ser inserido.
-     * @return true se a inserção foi realizada com sucesso, false caso contrário.
-     */
-
     @Override
     public boolean inserir(int indice, String elemento) {
-        if (!estaCheia()){
-            String auxiliar = lista[indice];
-            lista[indice] = elemento;
-            lista[indice+1] = auxiliar;
+        if (indice >= 0 && indice <= lista.length){
+            if (!estaCheia()){
+                for (int i = lista.length-1; i > indice; i--){
+                    lista[i] = lista[i-1];
+                }
 
-            System.out.println("Inserindo elemento "+ elemento + ", na posição " + indice);
+                System.out.println("Inserindo elemento "+ elemento + ", na posição " + indice);
+                lista[indice] = elemento;
 
-            for (int i = indice+1; i < lista.length-1; i++){
-                lista[i] = auxiliar;
-                auxiliar = lista[i+1];
+                System.out.println("Inserção realizada com sucesso!");
+                return true;
             }
-            System.out.println("Inserção realizada com sucesso!");
-            return true;
         }
+
         System.out.println("Lista cheia! Não é possível realizar a inserção.");
         return false;
     }
