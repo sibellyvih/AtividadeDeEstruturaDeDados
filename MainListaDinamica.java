@@ -16,7 +16,8 @@ public class MainListaDinamica {
         listaDinamica.contar();
 
         System.out.println("\n-----ADICIONANDO VÁRIOS ELEMENTOS-----");
-        listaDinamica.adicionarVarios(new String[]{"Laranja", "Maracujá"});
+        listaDinamica.adicionarVarios(new String[]{"Laranja", "Maracujá", "Limão", "Uva", "Banana"});
+        listaDinamica.exibirElementos();
 
         System.out.println("\n-----OBTER ELEMENTO PELO ÍNDICE-----");
         listaDinamica.obter(3);

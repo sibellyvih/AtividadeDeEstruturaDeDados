@@ -85,6 +85,7 @@ public class ListaDinamica implements ListaOperacoes{
             }
         }
 
+        System.out.println("Removendo todas as ocorrências de " + elemento);
         System.out.println("Total de elementos removidos: " + quantidadeElementosRemovidos);
         return quantidadeElementosRemovidos;
     }
@@ -109,23 +110,41 @@ public class ListaDinamica implements ListaOperacoes{
         return elementosArmazenados;
     }
 
-    /**
-     * Adiciona múltiplos elementos à lista.
-     *
-     * No caso da lista baseada em vetor, deve respeitar o limite
-     * de capacidade. Caso não haja espaço suficiente, apenas os
-     * elementos possíveis deverão ser adicionados.
-     *
-     * @param elementos Vetor de Strings contendo os elementos a serem adicionados.
-     * @return Quantidade de elementos que foram realmente adicionados.
-     */
-
     @Override
     public int adicionarVarios(String[] elementos) {
-        if (existeInicio()){
+         String novoElemento;
+         int quantidadeElementosAdicionados = 0;
 
+         // se nao tiver início
+        if (!existeInicio()){
+            inicio = new No(elementos[0]);
+            quantidadeElementosAdicionados++;
+            System.out.println("Elemento "+ elementos[0] + " adicionado com sucesso!");
+            No auxiliar = inicio;
+
+            for (int i = 1; i < elementos.length; i++){
+                No novoNo = new No(elementos[i]);
+                auxiliar.setProx(novoNo);
+                auxiliar = novoNo;
+                quantidadeElementosAdicionados++;
+                System.out.println("Elemento " + elementos[i] + " adicionado com sucesso!");
+            }
+        } else {
+            No auxiliar = inicio;
+            while (auxiliar.getProx() != null){
+                auxiliar = auxiliar.getProx();
+            }
+            for (int i = 0; i < elementos.length; i++){
+                No novoNo = new No(elementos[i]);
+                auxiliar.setProx(novoNo);
+                quantidadeElementosAdicionados++;
+                System.out.println("Elemento " + elementos[i] + " adicionado!");
+                auxiliar = auxiliar.getProx();
+            }
         }
-        return 0;
+
+        System.out.println("Total de elementos adicionados: " + quantidadeElementosAdicionados);
+        return quantidadeElementosAdicionados;
     }
 
     @Override
