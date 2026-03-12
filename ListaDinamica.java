@@ -44,20 +44,6 @@ public class ListaDinamica implements ListaOperacoes{
         }
     }
 
-    public boolean buscarElemento(String elemento) {
-        No aux = this.inicio;
-
-        do {
-            if(aux.getConteudo().equals(elemento)) {
-                System.out.println("Elemento " + elemento + " encontrado.");
-                return true;
-            }
-            aux = aux.getProx();
-        } while(aux != null);
-        System.out.println("Elemento " + elemento + " não encontrado!");
-        return false;
-    }
-
     @Override
     public int removerTodas(String elemento) {
         int quantidadeElementosRemovidos = 0;
@@ -97,10 +83,8 @@ public class ListaDinamica implements ListaOperacoes{
         No auxiliar = inicio;
 
         while (auxiliar.getProx() != null){
-            if (auxiliar.getConteudo() != null){
                 elementosArmazenados++;
                 auxiliar = auxiliar.getProx();
-            }
         }
         if (auxiliar.getConteudo() != null && auxiliar.getProx() == null){
             elementosArmazenados++;
@@ -239,14 +223,14 @@ public class ListaDinamica implements ListaOperacoes{
             for (contador = 0; contador <= indice; contador++){
                 if (contador == indice-1){
                     if (auxiliar.getProx() != null){
-                        elementoRemovido = auxiliar.getConteudo();
+                        elementoRemovido = auxiliar.getProx().getConteudo();
                         auxiliar.setProx(auxiliar.getProx().getProx());
                     } else {
                         System.out.println("Valor inválido!");
                         return null;
                     }
 
-                    System.out.println("Elemento " + elementoRemovido + " inserido na posição " + indice);
+                    System.out.println("Elemento " + elementoRemovido + " removido na posição " + indice);
 
                     return elementoRemovido;
                 } else {

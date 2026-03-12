@@ -3,46 +3,50 @@ void main() {
 
     listaSimples.exibirElementos();
     System.out.println("---------------------");
-    listaSimples.adicionarElemento("Batata");
-    listaSimples.adicionarElemento("Feijão");
-    //listaSimples.adicionarElemento("Batata2");
-    listaSimples.adicionarElemento("Arroz");
+    listaSimples.adicionarElemento("Chocolate");
+    listaSimples.adicionarElemento("Morango");
+    listaSimples.adicionarElemento("Morango");
+    listaSimples.adicionarElemento("Baunilha");
 
     System.out.println("\n-----MÉTODO REMOVER TODAS-----");
-    //listaSimples.removerTodas("Batata");
-
-    System.out.println("\n-----MÉTODO EXIBIR ELEMENTOS-----");
-    //listaSimples.exibirElementos();
+    listaSimples.removerTodas("Baunilha");
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO CONTAR-----");
-    //listaSimples.contar();
+    listaSimples.contar();
     listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO ADICIONAR VÁRIOS-----");
-    listaSimples.adicionarVarios(new String[]{"Salsicha", "Salsa"});
+    listaSimples.adicionarVarios(new String[]{"Abacaxi", "Flocos", "Chocolate", "Baunilha"});
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO OBTER-----");
-    //listaSimples.obter(0);
+    listaSimples.obter(3);
     listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO INSERIR-----");
-    //listaSimples.inserir(4, "Suco");
-    //listaSimples.exibirElementos();
+    listaSimples.inserir(2, "Uva");
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO REMOVER POR ÍNDICE-----");
-    //listaSimples.removerPorIndice(3);
-
-    System.out.println("\n-----MÉTODO LIMPAR-----");
-    //listaSimples.limpar();
+    listaSimples.removerPorIndice(0);
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO ÚLTIMO ÍNDICE DA OCORRÊNCIA-----");
-    //listaSimples.ultimoIndiceDe("Arroz");
+    listaSimples.ultimoIndiceDe("Morango");
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO CONTAR OCORRÊNCIAS-----");
-    //.contarOcorrencias("Arroz");
+    listaSimples.contarOcorrencias("Morango");
+    listaSimples.exibirElementos();
 
     System.out.println("\n-----MÉTODO SUBSTITUIR-----");
-    //listaSimples.substituir("Batata", "Água");
+    listaSimples.substituir("Flocos", "Abacaxi com vinho");
+    listaSimples.exibirElementos();
+
+    System.out.println("\n-----MÉTODO LIMPAR-----");
+    listaSimples.limpar();
+    listaSimples.exibirElementos();
 
 
 }

@@ -14,6 +14,7 @@ public class MainListaDinamica {
 
         System.out.println("\n-----CONTANDO ELEMENTOS-----");
         listaDinamica.contar();
+        listaDinamica.exibirElementos();
 
         System.out.println("\n-----ADICIONANDO VÁRIOS ELEMENTOS-----");
         listaDinamica.adicionarVarios(new String[]{"Laranja", "Maracujá", "Limão", "Uva", "Banana"});
@@ -31,10 +32,6 @@ public class MainListaDinamica {
         listaDinamica.removerPorIndice(4);
         listaDinamica.exibirElementos();
 
-        System.out.println("\n-----LIMPANDO LISTA-----");
-        //listaDinamica.limpar();
-        listaDinamica.exibirElementos();
-
         System.out.println("\n-----ÚLTIMO ÍNDICE DA OCORRÊNCIA-----");
         listaDinamica.ultimoIndiceDe("Banana");
         listaDinamica.exibirElementos();
@@ -45,6 +42,10 @@ public class MainListaDinamica {
 
         System.out.println("\n-----SUBSTITUINDO ELEMENTOS-----");
         listaDinamica.substituir("Banana", "Melão");
+        listaDinamica.exibirElementos();
+
+        System.out.println("\n-----LIMPANDO LISTA-----");
+        listaDinamica.limpar();
         listaDinamica.exibirElementos();
     }
 }

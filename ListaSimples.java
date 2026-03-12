@@ -20,19 +20,6 @@ public class ListaSimples implements ListaOperacoes {
         return true;
     }
 
-    public int buscarElemento(String elemento) {
-        int i;
-        if (!estaVazio()) {
-            for (i = 0; i < this.lista.length; i++) {
-                if (this.lista[i].equals(elemento)) {
-                    return i;
-                }
-            }
-        }
-        System.out.println("Elemento não encontrado na lista.");
-        return -1;
-    }
-
     public void adicionarElemento(String elemento) {
         if (!estaCheia()) {
             this.lista[encontrarPosicaoVazia()] = elemento;
@@ -67,17 +54,11 @@ public class ListaSimples implements ListaOperacoes {
 
         if (!estaVazio()) {
             for (int i = 0; i < this.lista.length; i++) {
-                if (lista[i] == elemento) {
+                if (lista[i] != null && lista[i].equals(elemento)) {
                     this.lista[i] = null;
                     System.out.println("Elemento " + elemento + " removido com sucesso!");
-
+                    qntElementoRemovido++;
                 }
-            }
-
-        }
-        for (int i = 0; i < this.lista.length; i++) {
-            if (lista[i] == null) {
-                qntElementoRemovido++;
             }
         }
 
@@ -109,6 +90,7 @@ public class ListaSimples implements ListaOperacoes {
                     if (lista[i] == null) {
                         lista[i] = elementos[j];
                         quatidadeElementosAdicionados++;
+                        System.out.println("Elemento "+ lista[i] + " adicionado com sucesso!");
                         break;
                     }
                 }
@@ -120,7 +102,7 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public String obter(int indice) {
-        if (indice >= 0) {
+        if (indice >= 0 && indice < lista.length) {
             System.out.println("No índice " + indice + " foi encontrado o elemento " + lista[indice]);
             return lista[indice];
         } else {
@@ -131,7 +113,7 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public boolean inserir(int indice, String elemento) {
-        if (indice >= 0 && indice <= lista.length){
+        if (indice >= 0 && indice < lista.length){
             if (!estaCheia()){
                 for (int i = lista.length-1; i > indice; i--){
                     lista[i] = lista[i-1];
@@ -151,11 +133,19 @@ public class ListaSimples implements ListaOperacoes {
 
     @Override
     public String removerPorIndice(int indice) {
-        String itemRemovidoPorIndice = lista[indice];
+        String itemRemovidoPorIndice;
+
+        if (indice >= 0 && indice < lista.length){
+            itemRemovidoPorIndice = lista[indice];
+            System.out.println("Índice válido!");
+        } else {
+            System.out.println("Índice inválido!");
+            return null;
+        }
 
         if (!estaVazio()){
             lista[indice] = null;
-            System.out.println("Item "+ itemRemovidoPorIndice + "removido do índice "+ indice);
+            System.out.println("Item "+ itemRemovidoPorIndice + " removido do índice "+ indice);
 
             for (int i = indice; i < this.lista.length-1; i++){
                     lista[i] = lista[i+1];
@@ -183,8 +173,8 @@ public class ListaSimples implements ListaOperacoes {
     @Override
     public int ultimoIndiceDe(String elemento) {
         int ultimaOcorrencia;
-        for (int i = lista.length-1; i > 0; i--){
-            if(lista[i] == elemento){
+        for (int i = lista.length-1; i >= 0; i--){
+            if (lista[i] != null && lista[i].equals(elemento)){
                 ultimaOcorrencia = i;
                 System.out.println("O elemento "+ elemento + " está na posição "+ ultimaOcorrencia + " em sua última acorrência.");
                 return ultimaOcorrencia;
@@ -199,7 +189,7 @@ public class ListaSimples implements ListaOperacoes {
         int quantidadeOcorrencias = 0;
 
         for (int i = 0; i < this.lista.length; i++){
-            if (lista[i] == elemento){
+            if (lista[i] != null && lista[i].equals(elemento)){
                 quantidadeOcorrencias++;
             }
         }
@@ -218,10 +208,10 @@ public class ListaSimples implements ListaOperacoes {
 
         if (!estaVazio()) {
             for (int i = 0; i < this.lista.length; i++) {
-                if (lista[i] == antigo) {
+                if (lista[i] != null && lista[i].equals(antigo)) {
                     this.lista[i] = novo;
                     quantidadeSubstituicao++;
-                    System.out.println("Elemento " + antigo + " foi substituido para " + novo);
+                    System.out.println("Elemento " + antigo + " foi substituído para " + novo);
                 }
             }
             if (quantidadeSubstituicao == 0){
